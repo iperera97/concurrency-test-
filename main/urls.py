@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from users.views import SyncUserView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sync-users', SyncUserView.as_view(), name='sync_users'),
 ]
