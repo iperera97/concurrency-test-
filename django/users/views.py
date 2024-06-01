@@ -28,8 +28,8 @@ class SyncUserView(View):
             
             return JsonResponse({'id': user.id}, status=201) # type: ignore
 
-        except Exception:
-            return JsonResponse({'error': 'User with this username/email already exists'}, status=400)
+        except Exception as err:
+            return JsonResponse({'error': f'{err}'}, status=400)
 
     def get(self, request, *args, **kwargs):
         user_id = request.GET.get('id')
